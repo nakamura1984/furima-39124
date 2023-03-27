@@ -21,21 +21,21 @@
 
 ## items テーブル
 
-| Column                 | Type        | Options                        |
-| ---------------------- | ----------- | ------------------------------ |
-| user                   | references  | null: false, foreign_key: true |
-| category               | integer     | null: false                    |
-| condition              | integer     | null: false                    |
-| shipping_cost          | integer     | null: false                    |
-| area_of_origin         | integer     | null: false                    |
-| estimated_sipping_date | integer     | null: false                    |
-| selling_price          | integer     | null: false                    |
-| name                   | string      | null: false                    |
-| detail                 | text        | null: false                    |
+| Column                    | Type        | Options                        |
+| ------------------------- | ----------- | ------------------------------ |
+| user                      | references  | null: false, foreign_key: true |
+| category_id               | integer     | null: false                    |
+| condition_id              | integer     | null: false                    |
+| shipping_cost_id          | integer     | null: false                    |
+| area_of_origin _id        | integer     | null: false                    |
+| estimated_sipping_date_id | integer     | null: false                    |
+| selling_price             | integer     | null: false                    |
+| name                      | string      | null: false                    |
+| detail                    | text        | null: false                    |
 
 ### Association
 - belongs_to :user
-- belongs_to :buy
+- has_one :buy
 
 ## buys テーブル
 
@@ -51,15 +51,15 @@
 
 ## addresses テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| prefecture       | string     | null: false                    |
-| municipality     | string     | null: false                    |
-| area_of_origin   | integer    | null: false                    |
-| post_code        | string     | null: false                    |
-| telephone_number | string     | null: false                    |
-| building_name    | string     |                                |
-| buy              | references | null: false, foreign: true     |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| address           | string     | null: false                    |
+| municipality      | string     | null: false                    |
+| area_of_origin_id | integer    | null: false                    |
+| post_code         | string     | null: false                    |
+| telephone_number  | string     | null: false                    |
+| building_name     | string     |                                |
+| buy               | references | null: false, foreign: true     |
 
 ### Association
-- has_one :buy
+- belongs_to :buy
