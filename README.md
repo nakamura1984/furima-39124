@@ -27,7 +27,7 @@
 | category_id               | integer     | null: false                    |
 | condition_id              | integer     | null: false                    |
 | shipping_cost_id          | integer     | null: false                    |
-| area_of_origin_id        | integer     | null: false                    |
+| area_of_origin_id         | integer     | null: false                    |
 | estimated_sipping_date_id | integer     | null: false                    |
 | selling_price             | integer     | null: false                    |
 | name                      | string      | null: false                    |
