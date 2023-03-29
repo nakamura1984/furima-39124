@@ -20,6 +20,6 @@ class User < ApplicationRecord
     validates :double_byte_last_name_kana
   end
   
-  has_many :items
+  #has_many :items
 
 end

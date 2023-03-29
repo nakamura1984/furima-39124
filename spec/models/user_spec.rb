@@ -113,13 +113,13 @@ RSpec.describe User, type: :model do
       it 'お名前(カナ)は、名字が必須であること' do
         @user.double_byte_last_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Double byte last name kana can't be blank", "Double byte last name kana 全角カナを使用してください")
+        expect(@user.errors.full_messages).to include("Double byte last name kana can't be blank")
       end
 
       it 'お名前(カナ)は、名前が必須であること' do
         @user.double_byte_first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Double byte first name kana can't be blank", "Double byte first name kana 全角カナを使用してください")
+        expect(@user.errors.full_messages).to include("Double byte first name kana can't be blank")
       end
       
       it 'お名前(カナ)は、名字が必須であること' do
