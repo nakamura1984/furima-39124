@@ -73,7 +73,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '価格は、¥300~¥9,999,999の間のみ保存可能であること。' do
-        @item.selling_price = '99999999'
+        @item.selling_price = '100000000'
         @item.valid?
         expect(@item.errors.full_messages).to include("Selling price must be less than or equal to 9999999")
       end
