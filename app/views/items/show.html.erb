@@ -16,7 +16,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+        <%= @item.selling_price %>
       </span>
       <span class="item-postage">
         <%= @item.shipping_cost.name %>
@@ -36,7 +36,7 @@
     
 
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @item.detail %></span>
     </div>
     <table class="detail-table">
       <tbody>
@@ -101,9 +101,9 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= @item.category_id %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
+
+  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
+
 </div>
 
 <%= render "shared/footer" %>
