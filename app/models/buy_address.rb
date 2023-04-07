@@ -1,9 +1,9 @@
 class BuyAddress
   include ActiveModel::Model
-  attr_accessor :municipality, :address, :area_of_origin_id, :post_code, :telephone_number, :building_name, :token
+  attr_accessor :municipality, :address, :area_of_origin_id, :post_code, :telephone_number, :building_name, :user_id, :item_id
 
   with_options presence: true do
-    validates :address, numericality: { other_than: 1, message: 'Select'}
+    validates :address
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :telephone_number, format: {with: /\A[0-9]{11}\z/, message: "is invalid. "}
     validates :area_of_origin_id, numericality: { other_than: 1, message: 'Select'}
