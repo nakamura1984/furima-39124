@@ -9,7 +9,7 @@ RSpec.describe BuyAddress, type: :model do
 
   describe '商品新規購入登録' do
     context '商品新規購入登録できる場合' do
-      it 'address、municipality、post_code、telephone_number、area_of_origin_idとが存在すれば登録できる' do
+      it 'address、municipality、post_code、telephone_number、area_of_origin_id、tokenとが存在すれば登録できる' do
         expect(@buy_address).to be_valid
       end
     end
@@ -67,6 +67,12 @@ RSpec.describe BuyAddress, type: :model do
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include('Area of origin Select')
       end
+    
+        it "tokenが空では登録できないこと" do
+          @buy_address.token = nil
+          @buy_address.valid?
+          expect(@buy_address.errors.full_messages).to include("Token can't be blank")
+        end
     end
   end
 end
