@@ -9,9 +9,14 @@ RSpec.describe BuyAddress, type: :model do
 
   describe '商品新規購入登録' do
     context '商品新規購入登録できる場合' do
-      it 'address、municipality、post_code、telephone_number、area_of_origin_id、tokenとが存在すれば登録できる' do
+      it 'address、municipality、post_code、telephone_number、area_of_origin_id、building_name、tokenとが存在すれば保存できること' do
         expect(@buy_address).to be_valid
       end
+      it 'address、municipality、post_code、telephone_number、area_of_origin_id、tokenとが存在し、building_nameがなくても保存できること' do
+        @buy_address.building_name = ''
+        expect(@buy_address).to be_valid
+      end
+      
     end
     context '商品新規登録できない場合' do
       it '郵便番号が必須であること。' do
@@ -68,11 +73,23 @@ RSpec.describe BuyAddress, type: :model do
         expect(@buy_address.errors.full_messages).to include('Area of origin Select')
       end
     
-        it "tokenが空では登録できないこと" do
-          @buy_address.token = nil
-          @buy_address.valid?
-          expect(@buy_address.errors.full_messages).to include("Token can't be blank")
-        end
+      it "tokenが空では登録できないこと" do
+        @buy_address.token = nil
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it "user_id（購入者）が空だと購入できない" do
+        @buy_address.user_id = ''
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_id（購入商品）が空だと購入できない" do
+        @buy_address.item_id = ''
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end

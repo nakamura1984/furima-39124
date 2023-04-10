@@ -6,7 +6,7 @@ class BuyAddress
   with_options presence: true do
     validates :address
     validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :telephone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid. ' }
+    validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid. ' }
     validates :area_of_origin_id, numericality: { other_than: 1, message: 'Select' }
     validates :municipality
     validates :user_id
