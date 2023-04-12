@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname:                    ニックネーム
+        date_of_birth:               生年月日
+        double_byte_first_name:      お名前
+        double_byte_last_name:       お名前
+        double_byte_first_name_kana: お名前
+        double_byte_last_name_kana:  お名前
+      item:
+        name:                        商品名
+        image:                       画像
+        detail:                      商品説明
+        category_id:                 カテゴリー
+        condition_id:                商品状態
+        shipping_cost_id:            配送料の負担
+        area_of_origin_id:           発送元の地域
+        estimated_sipping_date_id:   発送までの日数
+        selling_price:               価格
+  activemodel:   # Formオブジェクトを用いた場合
+     attributes:
+      buy_address:
+        municipality:                市区町村
+        area_of_origin_id:           都道府県
+        address:                     番地
+        post_code:                   郵便番号
+        telephone_number:            電話番号
+        token:                       クレジットカード情報
+
+
+
+
+
+
+
