@@ -14,7 +14,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.6.5' #カリキュラム通りに進めた場合、’2.6.5’ です
 
 # デプロイするブランチを指定する
-set :branch, “main”
+set :branch, 'main'
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
